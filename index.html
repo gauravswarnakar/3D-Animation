@@ -1,0 +1,128 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Watches</title>
+    <link rel="stylesheet" href="Css/style.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Luxury Timepieces</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-text">
+            <h2>Timeless Elegance</h2>
+            <p>Discover the world of luxury and precision.</p>
+            <a href="#collections" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Product 3D Model Section -->
+    <section id="collections" class="product-section">
+        <h2>Richard Mille RM 011</h2>
+        <p class="product-description">Material: Titanium | Movement: Automatic | Water Resistance: 50m</p>
+        
+        <!-- 3D Model Viewer -->
+        <div id="model-container"></div>
+
+        <!-- Buy Button -->
+        <button class="buy-btn">Buy Now</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>We offer the finest collection of luxury watches. Every timepiece reflects precision, style, and unmatched quality.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <textarea id="message" name="message" rows="4" placeholder="Your message..."></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Luxury Timepieces | All rights reserved</p>
+    </footer>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight / 2); // Adjusting the canvas size
+        renderer.setClearColor(0x000000, 0); // Transparent background
+        document.getElementById("model-container").appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        const loader = new THREE.GLTFLoader();
+        
+        loader.load(
+            'models/richard_mille_rm011_low_poly.glb',
+            function(gltf) {
+                const model = gltf.scene;
+                model.position.set(0, -1, 0);
+                model.scale.set(0.5, 0.5, 0.5);
+                scene.add(model);
+                animate();
+            },
+            undefined,
+            function(error) {
+                console.error('Error loading model:', error);
+                alert('Model loading failed. Please check the console for more details and verify the file path.');
+            }
+        );
+
+        // Lighting setup
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        scene.add(ambientLight);
+
+        const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
+        directionalLight1.position.set(5, 5, 5).normalize();
+        scene.add(directionalLight1);
+
+        // Set initial camera position
+        camera.position.set(0, 2, 10);
+        controls.update();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight / 2);
+            camera.aspect = window.innerWidth / (window.innerHeight / 2);
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+</html>
