@@ -1,0 +1,211 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and basic typography */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #000000; /* Black for premium feel */
+  color: #FFFFFF; /* White for clean text */
+}
+
+/* Navbar styles */
+header {
+  background-color: #1A1A3D; /* Deep Navy */
+  color: #FFD700; /* Gold for header */
+  padding: 15px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+nav .logo h1 {
+  font-size: 28px;
+  color: #FFD700; /* Gold text for logo */
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+}
+
+nav .nav-links li {
+  margin-left: 25px;
+}
+
+nav .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+nav .nav-links li a:hover {
+  color: #ff6600;
+}
+
+/* Hero Section */
+#hero {
+  background-image: url('hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+#hero .hero-text h2 {
+  font-size: 55px;
+  margin-bottom: 20px;
+  color: #FFD700; /* Gold heading */
+}
+
+#hero .hero-text p {
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: #ff6600;
+  color: white;
+  padding: 18px 35px;
+  border: none;
+  border-radius: 35px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #e65c00;
+}
+
+/* Product 3D Model Section */
+.product-section {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.product-section h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #FFD700; /* Gold for section heading */
+}
+
+.product-description {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #C0C0C0; /* Silver for product description */
+}
+
+#model-container {
+  width: 100%;
+  height: 500px; /* Adjusted height for better visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.buy-btn {
+  background-color: #FFD700; /* Gold for buttons */
+  color: white;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px; /* Enlarged button */
+}
+
+.buy-btn:hover {
+  background-color: #e65c00;
+}
+
+/* About Section */
+.about-section {
+  background-color: black; /* Deep Navy */
+  color: white;
+  padding: 70px 20px;
+  text-align: center; /* Centered content */
+}
+
+.about-section h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #FFD700; /* Gold for section heading */
+}
+
+.about-section p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 70px 20px;
+  background-color: #1A1A3D;
+  color: white;
+  text-align: center;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #FFD700; /* Gold for section heading */
+}
+
+/* Stylish input boxes */
+.contact-section label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #FFD700; /* Gold for labels */
+}
+
+.contact-section input, .contact-section textarea {
+  margin: 15px 0;
+  padding: 15px;
+  font-size: 16px;
+  color: #333; /* Dark gray text */
+  background-color: #f4f4f4; /* Light background for inputs */
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-section input:focus, .contact-section textarea:focus {
+  border-color: #FFD700; /* Gold border on focus */
+  background-color: #fff;
+  outline: none;
+}
+
+/* Stylish Send Message Button */
+.contact-section button {
+  background-color: #ff6600; /* Orange for button */
+  color: white;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+  background-color: #e65c00; /* Darker orange on hover */
+}
